@@ -20,5 +20,7 @@ p{
   @include reset();
 }
 
+@import 'Components/footer';
 @import 'Components/form';
+@import 'Components/profile';
 @import 'Components/timeline';

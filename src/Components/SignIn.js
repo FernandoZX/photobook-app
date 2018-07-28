@@ -4,32 +4,42 @@ class SignIn extends Component{
   render(){
     return (
       <section>
-        <form class="form">
+        <form className="form">
           <h2>Ingreso</h2>
-          <div class="form-group">
-            <input 
-              type="email" 
-              name="email" 
-              class="form-control"
-              placeholder="Email" />
+          <div className="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <i class="input-group-text" id="inputGroupPrepend2">@</i>
+              </div>
+              <input 
+                type="email" 
+                name="email" 
+                className="form-control"
+                placeholder="Email" />
+            </div>
           </div>
-          <div class="form-group">    
-            <input 
-              type="password" 
-              name="password" 
-              class="form-control"
-              placeholder="password" />
+          <div className="form-group"> 
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <i class="input-group-text" id="inputGroupPrepend2">@</i>
+              </div>   
+              <input 
+                type="password" 
+                name="password" 
+                className="form-control"
+                placeholder="password" />
+            </div>  
           </div>  
-          <div class="form-group">    
+          <div className="form-group">    
             <button
-              class="btn btn-success btn-block"
+              className="btn btn-success btn-block"
               >Ingresar</button>
           </div>
-          <p class="row">
-            <span class="col">
+          <p className="row">
+            <span className="col">
               <a href="#">Registro</a>
             </span>  
-            <span class="col">
+            <span className="col">
               <a href="#">Olvido de clave</a>
             </span>  
           </p>

@@ -12,7 +12,9 @@ import Profile from './Components/Profile'
 
 import logo from './logo.svg'
 import "bootstrap/dist/css/bootstrap.min.css"
+import './css/icomoon/style.css'
 import './css/style.scss'
+
 class App extends Component {
   render() {
     return (
