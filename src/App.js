@@ -17,8 +17,9 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <img src={logo} className="App-logo" alt="logo" />
-
+        <h1>
+          <img src={logo} className="App-logo" alt="logo" />
+        </h1>
         <SignIn />
         <SignUp />
         <PasswordRecovery />
