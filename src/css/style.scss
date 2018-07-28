@@ -1,0 +1,24 @@
+/*mixins*/
+@mixin reset{
+  margin:0;
+  padding:0
+}
+/*variables*/
+$main-font-color:#555;
+/*tags*/    
+body{
+  color:$main-font-color;
+  padding-top:80px 
+}
+h1{
+  text-align: center;
+  img{
+    width: 140px
+  }
+}
+p{
+  @include reset();
+}
+
+@import 'Components/form';
+@import 'Components/timeline';

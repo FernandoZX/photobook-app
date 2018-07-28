@@ -4,36 +4,49 @@ class SignUp extends Component{
   render(){
     return (
       <section>
-        <form>
-          <h2>Registro</h2>
+      <form class="form">
+        <h2>Registro</h2>
+        <div class="form-group">   
           <label 
             for="name">Nombre</label>
           <input 
             type="text"
             name="name"
             id="name"
+            class="form-control"
           />
+        </div>
+        <div class="form-group">   
           <label 
             for="lastname">Apellido</label>
           <input 
             type="text"
             name="lastname"
             id="lastname"
+            class="form-control"
           />
+        </div>
+        <div class="form-group">  
           <label 
             for="email">Correo</label>
           <input 
             type="email"
             name="email"
             id="email"
+            class="form-control"
           />
+        </div>
+        <div class="form-group">   
           <label 
             for="password">Clave</label>
           <input 
             type="password"
             name="password"
             id="password"
+            class="form-control"
           />
+        </div>
+        <div class="form-group">   
           <label 
             for="confirmPassword">Confirmar clave
           </label>
@@ -41,8 +54,11 @@ class SignUp extends Component{
             type="password"
             name="confirmPassword"
             id="confirmPassword"
+            class="form-control"
           />
-          
+        </div>
+        <div class="form-group">   
+        
           <label>
             <input 
               type="checkbox"
@@ -50,11 +66,15 @@ class SignUp extends Component{
             />
             Acepto términos y condiciones
           </label>
-          
-          <button>Enviar</button>
+        </div>
+        <div class="form-group">            
+        <button
+            class="btn btn-success btn-block"
+            >Enviar</button>
+        </div>
 
-        </form>
-      </section>
+      </form>
+    </section>
     )
   }
 

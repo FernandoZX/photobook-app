@@ -10,8 +10,9 @@ import Timeline from './Components/Timeline'
 import Post from './Components/Post'
 import Profile from './Components/Profile'
 
-import logo from './logo.svg';
-
+import logo from './logo.svg'
+import "bootstrap/dist/css/bootstrap.min.css"
+import './css/style.scss'
 class App extends Component {
   render() {
     return (
