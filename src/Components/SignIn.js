@@ -7,9 +7,9 @@ class SignIn extends Component{
         <form className="form">
           <h2>Ingreso</h2>
           <div className="form-group">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <i class="input-group-text" id="inputGroupPrepend2">@</i>
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <i className="input-group-text" id="inputGroupPrepend2">@</i>
               </div>
               <input 
                 type="email" 
@@ -19,9 +19,9 @@ class SignIn extends Component{
             </div>
           </div>
           <div className="form-group"> 
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <i class="input-group-text" id="inputGroupPrepend2">@</i>
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <i className="input-group-text" id="inputGroupPrepend2">@</i>
               </div>   
               <input 
                 type="password" 

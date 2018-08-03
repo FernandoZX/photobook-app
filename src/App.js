@@ -5,6 +5,7 @@ import Footer from './Components/Footer'
 import SignIn from './Components/SignIn'
 import SignUp from './Components/SignUp'
 import PasswordRecovery from './Components/PasswordRecovery'
+import NewPost from './Components/NewPost'
 
 import Timeline from './Components/Timeline'
 import Post from './Components/Post'
@@ -26,6 +27,7 @@ class App extends Component {
         <SignIn />
         <SignUp />
         <PasswordRecovery />
+        <NewPost />
         <Timeline />
         <Post />
         <Profile />

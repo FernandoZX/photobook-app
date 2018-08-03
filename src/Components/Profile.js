@@ -98,6 +98,21 @@ class Profile extends Component{
             </article>
           </li>
         </ul>
+        <section>
+          <form className="form-row">
+            <div className="col-10">
+              <input 
+                type="text"
+                name="comment"
+                placeholder="Comentario"
+                className="form-control"
+                />
+            </div>
+            <div className="col-2">
+              <button className="btn btn-primary">Enviar</button>
+            </div>
+          </form>
+        </section>
       </section>
     )
   }

@@ -15,12 +15,18 @@ class Post extends Component{
           <p className="date">Dec 15, 2018</p>
         </section>
           <section>
-            <form>
-              <input 
-                type="text"
-                name="comment"
-                placeholder="Comentario"/>
-              <button>Enviar</button>
+            <form className="form-row">
+              <div className="col-10">
+                <input 
+                  type="text"
+                  name="comment"
+                  placeholder="Comentario"
+                  className="form-control"
+                  />
+              </div>
+              <div className="col-2">
+                <button className="btn btn-primary">Enviar</button>
+              </div>
             </form>
           </section>
             <ul>
