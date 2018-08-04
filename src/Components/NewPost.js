@@ -40,7 +40,7 @@ class NewPost extends Component{
                 <button className="btn btn-block btn-success">Enviar</button>
               </div>
               <div className="col-5">
-                <button className="btn btn-block btn-danger">Cancelar</button>
+                <button type="button" className="btn btn-block btn-danger">Cancelar</button>
               </div>
             </div>  
         </form>

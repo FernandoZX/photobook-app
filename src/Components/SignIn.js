@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class SignIn extends Component{
   render(){
@@ -37,10 +38,10 @@ class SignIn extends Component{
           </div>
           <p className="row">
             <span className="col">
-              <a href="#">Registro</a>
+              <Link to="signUp">Registro</Link>
             </span>  
             <span className="col">
-              <a href="#">Olvido de clave</a>
+              <Link to="/passwordRecovery">Olvido de clave</Link>
             </span>  
           </p>
      </form>
