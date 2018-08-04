@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class SignUp extends Component{
   render(){
@@ -73,6 +74,11 @@ class SignUp extends Component{
               >Enviar</button>
           </div>
 
+          <p className="row">
+            <span className="col">
+              <Link to="/">Regresar</Link>
+            </span>   
+          </p>
         </form>
       </section>
     )

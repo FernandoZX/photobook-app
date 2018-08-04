@@ -23,19 +23,34 @@ class App extends Component {
     super();
     this.state = {
         isAuth: false,
-        showNewPost: true
+        showNewPost: false
     }
+    this.showNewPost = this.showNewPost.bind(this)
+    this.hideNewPost = this.hideNewPost.bind(this)
+    this.doLogOut = this.doLogOut.bind(this)
+  }
+  showNewPost(){
+    this.setState({
+      showNewPost:true
+    }) 
   }
   hideNewPost(){
     this.setState({
-      showNewPost: false
+      showNewPost:false
     })
   }
+  doLogOut(){
+    this.setState({
+      isAuth: false
+    })
+    window.location = '/'
+  }
+
   render() {
     return (
         <BrowserRouter>
         <main>
-        <Header isAuth={this.state.isAuth} />
+        <Header isAuth={this.state.isAuth} showNewPost={this.showNewPost} doLogOut={this.doLogOut} />
         {
           !this.state.isAuth ?
             <div>
