@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
-import {signup} from './../services/firebase'
+import {signup, create} from './../services/firebase'
 
 class SignUp extends Component{
   constructor(){
@@ -23,19 +23,21 @@ class SignUp extends Component{
       const user = {
         name: this.state.name,
         lastname: this.state.lastname,
-        email: this.state.email,
-        password: this.state.password
+        email: this.state.email
       }
-      signup(user)
+      signup({email: this.state.email,password: this.state.password})
       .then(()=>{
-        this.setState({
-          name: '',
-          lastname: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-          terms: '',
-          error:false
+        create('users',user)
+        .then(()=>{
+          this.setState({
+            name: '',
+            lastname: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            terms: '',
+            error:false
+          })
         })
         
       })

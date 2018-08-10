@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import {logout, isAuth} from './services/firebase'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
@@ -73,11 +73,14 @@ class App extends Component {
                   <NewPost showNewPost={this.showNewPost} />
               }
               <Switch>
+
                 <Route exact path="/" component={Timeline} />
                 <Route path="/post/:id" component={Post} />
                 <Route path="/profile" component={Profile}  />
                 <Route path="/profile/:id" component={Profile} />
-              </Switch>
+                
+              }
+                </Switch>
             </div>  
         }
         <Footer /> 
