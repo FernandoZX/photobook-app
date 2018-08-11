@@ -1,19 +1,18 @@
 import firebase from 'firebase'
 
 const config = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASEURL,
-  projectId: process.env.REACT_APP_PROJECTID,
-  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGINSENDERID
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 }
 firebase.initializeApp(config)
 
 const authentication = firebase.auth()
 const storage = firebase.storage()
 const database = firebase.database()
-const firestore = firebase.firestore()
 
 export function login(user){
     return authentication.signInWithEmailAndPassword(user.email, user.password)
@@ -24,17 +23,26 @@ export function logout(){
 export function signup(user){
     return authentication.createUserWithEmailAndPassword(user.email,user.password)
 }
-export let isAuth = new Promise((resolve, reject) => {
+export let userInfo = new Promise((resolve, reject) => {
   authentication.onAuthStateChanged(user=>{
-     return resolve(!!user)
+    if(user != null)
+        return resolve(user)
+    else
+        return reject(null)
   })
-});
+})
 export function upload(file){
-    return storage.ref('/images').child(file.name).put(file)
+    return storage.ref('/images').child(Date.now().toString()).put(file)
 }
-
-
 export function create(collection, obj){
-    return firestore.collection(collection).add(obj)
+    return database.ref(collection).push(obj)
 } 
-//CRUD
+export function remove(collection, id){
+    return database.ref(collection).child(id).remove()
+} 
+export function list(collection){
+    return database.ref(collection)
+} 
+export function read(collection, id){
+    return database.ref(collection+"/"+id)
+} 

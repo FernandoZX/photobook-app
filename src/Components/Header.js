@@ -27,7 +27,7 @@ class Header extends Component{
                   </h1> 
                   <div>
                     <Link to="#" onClick={this.showNewPost}><span className="icon-plus"></span></Link>
-                    <Link to="/profile"><span className="icon-user"></span>Username</Link>
+                    <Link to="/profile"><span className="icon-user"></span>{this.props.user}</Link>
                     <Link to="/" onClick={this.logout}><span className="icon-exit"></span></Link>
                   </div>
             </div>

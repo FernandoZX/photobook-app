@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
-import {logout, isAuth} from './services/firebase'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {logout, userInfo} from './services/firebase'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
@@ -23,6 +23,8 @@ class App extends Component {
     super();
     this.state = {
         isAuth: false,
+        user:'',
+        email:'',
         showNewPost: false
     }
     this.showNewPost = this.showNewPost.bind(this)
@@ -35,18 +37,34 @@ class App extends Component {
   }
 
   login = isAuth => {
-    this.setState({
-      isAuth: isAuth
-    })
-    if(!isAuth) 
+  
+    if(isAuth){
+      userInfo
+      .then(user=>{
+        this.setState({
+          isAuth: true,
+          email:user.email,
+          user:user.email.split("@")[0]
+        })
+      })
+    }else{
+      this.setState({
+        isAuth: false,
+        email:'',
+        user:''
+      })
       logout()
+    } 
+      
   }
 
   componentDidMount(){
-    isAuth
+    userInfo
     .then(user=>{
       this.setState({
-        isAuth: user
+        isAuth: !!user,
+        email:user.email,
+        user:user.email.split("@")[0]
       })
     })
   }
@@ -55,14 +73,14 @@ class App extends Component {
     return (
         <BrowserRouter>
         <main>
-        <Header isAuth={this.state.isAuth} showNewPost={this.showNewPost} login={this.login} />
+        <Header user={this.state.user} isAuth={this.state.isAuth} showNewPost={this.showNewPost} login={this.login} />
         {
           !this.state.isAuth ?
             <div>
               <h1><img src={logo} className="App-logo" alt="logo" /></h1>
               <Switch>
                 <Route exact path="/" component={() => <SignIn login={this.login} />} />
-                <Route path="/signup" component={SignUp} />
+                <Route path="/signup" component={() => <SignUp login={this.login} />}  />
                 <Route path="/passwordRecovery" component={PasswordRecovery} />
               </Switch>
             </div>  
